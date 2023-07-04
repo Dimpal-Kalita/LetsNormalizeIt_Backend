@@ -8,6 +8,7 @@ import router from './routes/user_route.js';
 import blogRouter from './routes/blog_routes.js';
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.use("/api/user",router);
 app.use("/api/blog",blogRouter);
@@ -21,7 +22,6 @@ dotenv.config();
 // body-parser extracts the entire body portion of an incoming request stream and exposes it on req.body.
 app.use(bodyParser.json({extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(cors());
 
 // app.use('/', Routes);
 

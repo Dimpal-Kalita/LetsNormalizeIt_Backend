@@ -39,7 +39,7 @@ export const Signup = async (req, res, next) => {
   } catch (err) {
     console.log(err);
   }
-  return res.status(201).json({ user: createdUser });
+  return res.status(201).json({message:"Signin Successfull" ,user: createdUser });
 }
 
 export const Login = async (req, res, next) => {
