@@ -3,10 +3,15 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import cors from 'cors';
 
-// import Routes from './server/route.js';
 import Connection from './database/db.js';
+import router from './routes/user_route.js';
+import blogRouter from './routes/blog_routes.js';
 
 const app = express();
+app.use(express.json());
+app.use("/api/user",router);
+app.use("/api/blog",blogRouter);
+
 
 
 dotenv.config();
