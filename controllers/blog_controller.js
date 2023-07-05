@@ -48,13 +48,14 @@ export const addBlogs=async(req,res,next)=>{
 }
 
 export const UpdateBlog=async(req,res,next)=>{
-     const {title,description}=req.body;
+     const {title,description,image}=req.body;
      const blogId= req.params.id;
      let blog;
      try{
           blog= await Blog.findByIdAndUpdate(blogId,{
                title,
-               description
+               description,
+               image
           });
      }catch(err){
           return console.log(err);
