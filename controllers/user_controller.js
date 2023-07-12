@@ -58,3 +58,23 @@ export const Login = async (req, res, next) => {
   }
   return res.status(200).json({message: "Login Successfull",user:existingUser});
 }
+
+export const UpdatePassword= async (req,res,next) =>{
+  const {email,password}= req.body;
+  let existingUser;
+  try{
+    existingUser= await User.findOne({email});
+  }catch(e){
+    console.log(e);
+  }
+  if(!existingUser){
+    return res.status(404).json({message:"User not found"});
+  }
+  existingUser.password=password;
+  try{
+    await existingUser.save();
+  }catch(e){
+    console.log(e);
+  }
+  return res.status(200).json({message:"Password Updated Successfully"});
+}
