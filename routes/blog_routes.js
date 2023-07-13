@@ -1,5 +1,5 @@
 import express from 'express';
-import { UpdateBlog, addBlogs, deleteBlog, getAllBlogs, getById,getBlogsByUser } from '../controllers/blog_controller';
+import { UpdateBlog, addBlogs, deleteBlog, getAllBlogs, getById,getBlogsByUser } from '../controllers/blog_controller.js';
 
 const blogRouter = express.Router();
 
